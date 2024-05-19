@@ -1,0 +1,33 @@
+{{ define "title" }}{{ .Paste.Title }} - GoPaster{{ end }}
+
+{{ define "content" }}
+<div class="card my-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-end mb-3">
+            <a href="javascript:void(0);" id="copy-button" class="btn btn-outline-secondary me-2">Copy</a>
+            <a href="/raw/{{ .Paste.ID }}" class="btn btn-outline-secondary me-2">Raw</a>
+            <form action="/paste/{{ .Paste.ID }}/delete" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <h1 class="h3">{{ .Paste.Title }}</h1>
+        <p id="paste-content" class="bg-light p-3">{{ .Paste.Content }}</p>
+        <p><small class="text-muted">Created at: {{ .Paste.CreatedAt }}</small></p>
+        <a href="/" class="btn btn-link">Back to Home</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('copy-button').addEventListener('click', function () {
+        var pasteContent = document.getElementById('paste-content').innerText;
+        navigator.clipboard.writeText(pasteContent).then(function () {
+            var copyButton = document.getElementById('copy-button');
+            var originalText = copyButton.innerText;
+            copyButton.innerText = 'Copied!';
+            setTimeout(function () {
+                copyButton.innerText = originalText;
+            }, 1000);
+        });
+    });
+</script>
+{{ end }}

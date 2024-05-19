@@ -1,0 +1,14 @@
+services:
+  gopaster:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "443:443"
+    volumes:
+      - ./data:/app/data
+      - ./certs:/app/certs
+
+volumes:
+  data:
+  certs:

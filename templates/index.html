@@ -1,0 +1,35 @@
+{{ define "title" }}Home - GoPaster{{ end }}
+
+{{ define "content" }}
+<div class="card my-4">
+    <div class="card-body">
+        <form action="/paste" method="POST">
+            <div class="mb-3">
+                <textarea name="content" class="form-control" rows="10" placeholder="Paste your content here..."
+                    required></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="title" class="form-control" placeholder="(Optional) Title">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="password" class="form-control" placeholder="(Optional) Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Create Paste</button>
+        </form>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">Recent Pastes</h2>
+        <ul class="list-group list-group-flush">
+            {{ range .Pastes }}
+            <li class="list-group-item">
+                <a href="/paste/{{ .ID }}">{{ .Title }}</a>
+            </li>
+            {{ else }}
+            <li class="list-group-item">No pastes available</li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+{{ end }}

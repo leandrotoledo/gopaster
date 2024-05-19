@@ -1,0 +1,11 @@
+{{ define "title" }}{{ .Type }} - GoPaster{{ end }}
+
+{{ define "content" }}
+<div class="card my-4">
+    <div class="card-body">
+        <h1 class="text-center">Error</h1>
+        <p class="text-center">{{ .Message }}</p>
+        <a href="/" class="btn btn-link">Back to Home</a>
+    </div>
+</div>
+{{ end }}
