@@ -43,10 +43,27 @@ GoPaster is a simple, web-based pastebin application written in Go. It allows us
 
 ### Docker Compose
 
-1. **Run Docker Compose:**
+1. **Create a `docker-compose.yaml` file:**
+
+    ```yaml
+    services:
+      gopaster:
+        image: leandrotoledo/gopaster:latest
+        ports:
+          - "443:443"
+        volumes:
+          - ./data:/app/data
+          - ./certs:/app/certs
+
+    volumes:
+      data:
+      certs:
+    ```
+
+2. **Run Docker Compose:**
 
     ```sh
-    docker-compose up --build
+    docker-compose up
     ```
 
 ## Contributing
