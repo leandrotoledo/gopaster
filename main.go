@@ -21,7 +21,7 @@ func main() {
 	http.HandleFunc("POST /paste/{id}/delete", deletePasteHandler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	log.Println("Starting server on :443...")
+	log.Println("Starting server on https://0.0.0.0:443...")
 	log.Fatal(http.ListenAndServeTLS(":443", "certs/server.crt", "certs/server.key", nil))
 }
 

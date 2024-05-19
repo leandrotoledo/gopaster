@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"time"
 
@@ -15,7 +14,6 @@ var (
 )
 
 func initDB() {
-	fmt.Println("Opening database connection...")
 	var err error
 	db, err = sql.Open("sqlite3", "data/gopaster.db")
 	if err != nil {
