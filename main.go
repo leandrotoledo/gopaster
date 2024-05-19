@@ -99,7 +99,6 @@ func readRawHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func createPasteHandler(w http.ResponseWriter, r *http.Request) {
-	// retrieve form values or GET parameters values
 	content := r.FormValue("content")
 	title := r.FormValue("title")
 	if title == "" {

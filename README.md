@@ -43,7 +43,7 @@ GoPaster is a simple, web-based pastebin application written in Go. It allows us
 
 ### Docker Compose
 
-1. **Create a `docker-compose.yaml` file:**
+1. **Create a `docker-compose.yml` file:**
 
     ```yaml
     services:
@@ -65,6 +65,24 @@ GoPaster is a simple, web-based pastebin application written in Go. It allows us
     ```sh
     docker-compose up
     ```
+
+### (Maintainers only) Building and Pushing Docker Images for Multiple Platforms
+
+We use Docker Buildx to build and push multi-platform Docker images. Follow these instructions to build and push the Docker image:
+
+1. **Ensure Docker Buildx is enabled**:
+
+    ```sh
+    docker buildx create --use
+    ```
+
+2. **Build and push the Docker image**:
+
+    ```sh
+    docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t leandrotoledo/gopaster:latest --push .
+    ```
+
+This command builds the Docker image for `amd64`, `arm64`, and `arm/v7` platforms and pushes it to the Docker registry.
 
 ## Contributing
 
