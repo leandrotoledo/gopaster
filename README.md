@@ -2,6 +2,10 @@
 
 GoPaster is a simple, web-based pastebin application written in Go. It allows users to create, read, and delete pastes securely using SSL. This application is designed for simplicity and ease of use, making it perfect for quickly sharing snippets of text or code.
 
+![Screenshot - Home](https://github.com/leandrotoledo/gopaster/assets/615742/69820e6e-1f6b-4f82-9790-1c52c5e8b7bd)
+
+![Screenshot - Paste](https://github.com/leandrotoledo/gopaster/assets/615742/d0ab56cb-b8a1-45d0-b20d-6ed400c4599f)
+
 ## Features
 
 - **Create Pastes**: Easily create and share pastes with a unique URL.
